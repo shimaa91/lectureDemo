@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "lectureDemo"
+    }
+  },
+  "defaultProject": "lectureDemo",
+  "cli": {
+    "analytics": false
+  }
 }

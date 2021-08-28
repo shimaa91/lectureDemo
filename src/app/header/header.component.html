@@ -1,0 +1,51 @@
+<p>header works!</p>
+<!--Data Binding-->
+<!--1-interpolation binding-->
+<!--
+    what can we do 
+     {{2+3*10}}
+<br>
+{{headerTitle}}
+<br>
+{{"Welcome to angular "+headerTitle}}
+<br>
+{{headerTitle.length}}
+<br>
+{{headerTitle.toUpperCase()}}
+<br>
+{{displayMsg()}}
+{{webSiteURL}} -->
+
+<!--What can't we do  -->
+ <!-- {{a=2+3}} 
+ {{window.location.href}}  -->
+<!--------------------------------------------->
+
+<!--Property Binding-->
+<!-- <input  type="text" id="txtId">
+<br>
+<input  type="text" [id]="headerId"> -->
+
+<!----------------------------------------->
+<!--calss binding-->
+<!-- <div  [class]="classStyle">Welcome Binding</div>
+
+<div [class.text-danger]="hasErr">This is class binding </div>
+
+<div [ngClass]="setOfClasses"   class="text-primary">Apply multiple classes</div> -->
+
+<!-------------------------------------------------------->
+
+<!--Style binding-->
+
+<h1 style="color: red;">This is style binding</h1>
+
+<h1 [style.color]="'red'">This is style binding</h1>
+
+<h1 [style.color]="myStyle">This is style binding</h1>
+
+<h1 [style.color]="hasErr ? 'red' : 'green'">This is style binding</h1>
+
+<h1 [ngStyle]="setOfStyles">This is style binding</h1>
+
+
