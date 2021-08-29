@@ -10,6 +10,14 @@ import { LeftSideComponent } from './left-side/left-side.component';
 import { RightSideComponent } from './right-side/right-side.component';
 
 import { AuthModule } from './../auth/auth.module';
+import { BindingComponent } from './binding/binding.component';
+import { FormsModule } from '@angular/forms';
+import { StructuralDirectivesComponent } from './structural-directives/structural-directives.component';
+import { PipesComponent } from './pipes/pipes.component';
+import { SquarePipe } from './customPipes/square.pipe';
+import { EmployeeListComponent } from './Emplyees/employee-list/employee-list.component';
+import { EmployeeDetailsComponent } from './Emplyees/employee-details/employee-details.component';
+import { EmployeeService } from './services/employee.service';
 
 @NgModule({
   declarations: [
@@ -18,15 +26,23 @@ import { AuthModule } from './../auth/auth.module';
     FooterComponent,
     MainComponent,
     LeftSideComponent,
-    RightSideComponent
+    RightSideComponent,
+    BindingComponent,
+    StructuralDirectivesComponent,
+    PipesComponent,
+    SquarePipe,
+    EmployeeListComponent,
+    EmployeeDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    FormsModule
   ],
 
-  providers: [],
+  // providers: [EmployeeService],
+  providers:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
