@@ -18,6 +18,11 @@ import { SquarePipe } from './customPipes/square.pipe';
 import { EmployeeListComponent } from './Emplyees/employee-list/employee-list.component';
 import { EmployeeDetailsComponent } from './Emplyees/employee-details/employee-details.component';
 import { EmployeeService } from './services/employee.service';
+import { TestObservableComponent } from './test-observable/test-observable.component';
+import {HttpClientModule} from '@angular/common/http';
+import { ParentComponent } from './component interaction/parent/parent.component';
+import { ChildComponent } from './component interaction/child/child.component'
+
 
 @NgModule({
   declarations: [
@@ -32,13 +37,17 @@ import { EmployeeService } from './services/employee.service';
     PipesComponent,
     SquarePipe,
     EmployeeListComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    TestObservableComponent,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
 
   // providers: [EmployeeService],
