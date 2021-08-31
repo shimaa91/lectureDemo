@@ -1,0 +1,5 @@
+<p>departments works!</p>
+
+<div [class.selectedItem]="isSelected(dept)" (click)="goToDepartmentDetails(dept)" *ngFor="let dept of departments">
+    <h2>{{dept.id}} - {{dept.name}}</h2>
+</div>

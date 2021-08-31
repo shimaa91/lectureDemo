@@ -21,7 +21,13 @@ import { EmployeeService } from './services/employee.service';
 import { TestObservableComponent } from './test-observable/test-observable.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ParentComponent } from './component interaction/parent/parent.component';
-import { ChildComponent } from './component interaction/child/child.component'
+import { ChildComponent } from './component interaction/child/child.component';
+import { DepartmentsComponent } from './departments/departments.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DepartmentDetailsComponent } from './department-details/department-details.component';
+import { OverViewComponent } from './over-view/over-view.component';
+import { ContactInfoComponent } from './contact-info/contact-info.component';
+import { EnrollComponent } from './enroll/enroll.component'
 
 
 @NgModule({
@@ -40,7 +46,13 @@ import { ChildComponent } from './component interaction/child/child.component'
     EmployeeDetailsComponent,
     TestObservableComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    DepartmentsComponent,
+    PageNotFoundComponent,
+    DepartmentDetailsComponent,
+    OverViewComponent,
+    ContactInfoComponent,
+    EnrollComponent
   ],
   imports: [
     BrowserModule,
