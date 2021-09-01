@@ -1,0 +1,63 @@
+<div class="container">
+    <h1>Register Form</h1>
+    <form [formGroup]="registerationForm">
+        {{registerationForm.value | json}}
+        <div class="form-group">
+            <label>User Name</label>
+            <input type="text" [class.is-invalid]="userName.invalid && userName.touched" formControlName="userName"
+                class="form-control" />
+            <small class="text-danger" [class.d-none]="!userName.errors?.required || userName.untouched">
+                user name is required
+            </small>
+            <small class="text-danger" [class.d-none]="!userName.errors?.minlength || userName.untouched">
+                user name must be at least 3 chars
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label> <button class="btn btn-secondary" (click)="addAlernativeEmails()">Add Alterantive Emails</button>
+            <input type="text" [class.is-invalid]="email.invalid && email.touched" formControlName="email"
+                class="form-control">
+            <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required </small>
+        </div>
+        <div class="form-group">
+        <div formArrayName="alternativeEmails" *ngFor="let email of alternativeEmails.controls;let i =index">
+            <label>Alternative Email number {{i+1}}</label>
+            <input type="text" class="form-control" [formControlName]="i"/>
+        </div>
+        </div>
+        <div class="form-check mb-3">
+            <input class="form-check- input" (click)="setEmailValidation()" formControlName="subscribe" type="checkbox">
+            <label class="form-check-label"> Send me promotional offers </label>
+        </div>
+
+        <div class="form-group">
+            <label>password</label>
+            <input type="password" formControlName="password" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Confirm password</label>
+            <input type="password" formControlName="confirmPassword" class="form-control" />
+        </div>
+        <div formGroupName="address">
+            <div class="form-group">
+                <label>State</label>
+                <input type="text" formControlName="state" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" formControlName="city" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Postal Code</label>
+                <input type="text" formControlName="postalCode" class="form-control">
+            </div>                          
+            
+        </div>
+
+      
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+
+    <button class="btn btn-secondary float-right" (click)="getData()">get data from API </button>
+</div>

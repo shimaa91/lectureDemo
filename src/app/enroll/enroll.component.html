@@ -1,12 +1,16 @@
 <div class="container">
     <h2>Enroll Form</h2>
-    <form #userForm="ngForm">
+    <form #userForm="ngForm" nonvalidate (ngSubmit)="submitData()" >
         {{userForm.value |json}}
         <br>
         {{userModel | json}}
-        <div class="form-group">
+        <div class="form-group" >
             <label>Name:</label>
-            <input type="text" name="txtName" [(ngModel)]="userModel.name" class="form-control" />
+            <input type="text" [class.is-invalid]="name.invalid && name.touched" required #name="ngModel" name="txtName" [(ngModel)]="userModel.name" class="form-control" />
+            <small class="text-danger" [class.d-none]="name.valid || name.untouched">
+                user name is required
+            </small>
+            {{name.invalid}}
         </div>
 
         <div class="form-group">
@@ -16,18 +20,30 @@
 
         <div class="form-group">
             <label>telephone :</label>
-            <input type="tel" name="txtTel" [(ngModel)]="userModel.phone" class="form-control">
+            <input type="tel" name="txtTel" required #phone="ngModel" [class.is-invalid]="phone.invalid&&phone.touched" pattern="^\d{11}$" [(ngModel)]="userModel.phone" class="form-control">
+            <div *ngIf="phone.errors">
+            <small class="text-danger"  [class.d-none]="!phone.errors.required || phone.untouched">
+                phone is required
+            </small>
+            <small class="text-danger" [class.d-none]="!phone.errors.pattern || phone.untouched">
+                phone must be 11 numbers
+            </small>
+        </div>
         </div>
         <div class="form-group">
-            <select class="custom-select" name="ddlTopic" [(ngModel)]="userModel.topic">
-                <option selected>
+            <select class="custom-select" (change)="validateTopic(topic.value)" #topic="ngModel" [class.is-invalid]="hasTopicError && topic.touched" required name="ddlTopic" [(ngModel)]="userModel.topic">
+                <option selected value="default">
                     I'm Interested In
                 </option>
                 <option *ngFor="let topic of
                 topics">{{topic}}
                 </option>
             </select>
+            <small class="text-danger" [class.d-none]="!hasTopicError">
+                topic is required
+            </small>
         </div>
+        
 
         <div ngModelGroup="address">
             <div class="form-group">

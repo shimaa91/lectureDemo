@@ -11,7 +11,7 @@ import { RightSideComponent } from './right-side/right-side.component';
 
 import { AuthModule } from './../auth/auth.module';
 import { BindingComponent } from './binding/binding.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StructuralDirectivesComponent } from './structural-directives/structural-directives.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { SquarePipe } from './customPipes/square.pipe';
@@ -27,7 +27,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { DepartmentDetailsComponent } from './department-details/department-details.component';
 import { OverViewComponent } from './over-view/over-view.component';
 import { ContactInfoComponent } from './contact-info/contact-info.component';
-import { EnrollComponent } from './enroll/enroll.component'
+import { EnrollComponent } from './enroll/enroll.component';
+import { RegisterComponent } from './register/register.component'
 
 
 @NgModule({
@@ -52,14 +53,16 @@ import { EnrollComponent } from './enroll/enroll.component'
     DepartmentDetailsComponent,
     OverViewComponent,
     ContactInfoComponent,
-    EnrollComponent
+    EnrollComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
 
   // providers: [EmployeeService],
